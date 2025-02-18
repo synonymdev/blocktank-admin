@@ -107,7 +107,7 @@ function ConfigurePage(): JSX.Element {
 		// const default_channel_expiry = 12;
 
 		try {
-			await checkGeoLock();
+			// await checkGeoLock();
 			const order = await client.createOrder(local_balance, channel_expiry, {
 				clientBalanceSat: remote_balance,
 				couponCode: coupon_code,
@@ -139,7 +139,7 @@ function ConfigurePage(): JSX.Element {
 
 		const max_chan_receiving = Math.floor(options.maxChannelSizeSat);
 		const min_chan_receiving = Math.floor(options.minChannelSizeSat);
-        const max_chan_spending = Math.floor(options.maxClientBalanceSat - Number(remoteBalance));
+		const max_chan_spending = Math.floor(options.maxClientBalanceSat - Number(remoteBalance));
 
 		const selectedPair = `BTC${selectedCurrency}`;
 		const bitcoinPrice = exchangeRates[selectedPair];
