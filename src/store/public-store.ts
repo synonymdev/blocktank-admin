@@ -100,7 +100,7 @@ export const refreshOrder = createAsyncThunk('bt/refreshOrder', async (orderId: 
 });
 
 export const refreshExchangeRates = createAsyncThunk('bt/refreshExchangeRates', async () => {
-	const response = await fetch('https://blocktank.synonym.to/api/v1/rate');
+	const response = await fetch('https://blocktank.synonym.to/fx/rates/btc/');
 	const data = await response.json();
 	const exchangeRates: IExchangeRatesResponse = {};
 	data.tickers.forEach((ticker) => {
@@ -113,7 +113,7 @@ export const refreshExchangeRates = createAsyncThunk('bt/refreshExchangeRates', 
 
 export const checkGeoLock = async (): Promise<void> => {
 	try {
-		const response = await fetch('https://api1.blocktank.to/api/geocheck')
+		const response = await fetch('https://api1.blocktank.to/api/geocheck');
 		if (!response.ok) {
 			throw new Error('GEO_BLOCKED');
 		}
